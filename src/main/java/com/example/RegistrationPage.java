@@ -1,17 +1,12 @@
 package com.example;
-
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage {
 
   WebDriver driver;
-  WebDriverWait wait;
 
   String url = "https://www.sofa.de/registrierung";
   By acceptCookieElement = By.xpath("//button[contains(text(), 'Alle auswählen & bestätigen')]");
@@ -26,7 +21,6 @@ public class RegistrationPage {
 
   public RegistrationPage(WebDriver driver) {
     this.driver = driver;
-    wait = new WebDriverWait(driver, Duration.ofSeconds(10));
   }
 
   public void goToSafaApp() {
@@ -50,7 +44,7 @@ public class RegistrationPage {
     driver.findElement(agbCheckbox).click();
     driver.findElement(registrationSubmitButton).click();
     try {
-      Thread.sleep(2000);
+      Thread.sleep(500);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }

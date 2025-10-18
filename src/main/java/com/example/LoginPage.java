@@ -11,13 +11,14 @@ public class LoginPage {
     private By emailElement = By.xpath("//input[@id='loginEmail']");
     private By passwordElement = By.xpath("//input[@id='loginPassword']");
     private By login = By.xpath("//button[@id='login-submit']");
+    private String loginUrl = "https://www.sofa.de/login";
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
     public void goToLoginPage() {
-        driver.get("https://www.sofa.de/login");
+        driver.get(loginUrl);
         driver.manage().window().maximize();
         driver.findElement(cookieAcceptElement).click();
     }
@@ -28,7 +29,7 @@ public class LoginPage {
         driver.findElement(passwordElement).sendKeys(password);
         driver.findElement(login).click();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
